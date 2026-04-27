@@ -4,9 +4,7 @@ import { motion } from "framer-motion";
 import { Send, Mail, MapPin, Loader2, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
-// ─── Web3Forms sends form submissions straight to your Gmail inbox ───────────
-// Get your FREE access key at: https://web3forms.com  (takes 30 seconds)
-// Then replace the value below with your key.
+// Web3Forms Key — replace with your real key from web3forms.com
 const WEB3FORMS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
 
 export default function Contact() {
@@ -57,56 +55,54 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent-blue/5 rounded-full blur-[120px] -z-10" />
-
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16">
-        {/* Left info */}
-        <div className="md:w-1/2">
-          <h2 className="text-sm font-bold tracking-widest text-accent-blue uppercase mb-2">Connect</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-black mb-8">
-            Let&apos;s build something <span className="text-gradient">incredible.</span>
+    <section id="contact" className="py-24 px-6 relative bg-gray-50/50">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-20">
+        {/* Left side */}
+        <div className="md:w-5/12">
+          <span className="section-label">Connect</span>
+          <h3 className="text-4xl md:text-5xl font-display font-black mb-8 tracking-tight">
+            Ready to <br /> <span className="text-accent">collaborate?</span>
           </h3>
-          <p className="text-slate-400 mb-10 text-lg">
+          <p className="text-gray-500 mb-12 text-lg font-medium leading-relaxed">
             Have a project in mind or just want to chat? Reach out and I&apos;ll get back to you within 24 hours.
           </p>
 
-          <div className="space-y-6">
-            <div className="flex items-center gap-4 group">
-              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center text-accent-blue group-hover:border-accent-blue transition-all">
-                <Mail size={20} />
+          <div className="space-y-8">
+            <div className="flex items-center gap-5 group">
+              <div className="w-14 h-14 bg-white border border-gray-100 shadow-sm rounded-2xl flex items-center justify-center text-accent group-hover:border-accent transition-all duration-300">
+                <Mail size={22} />
               </div>
               <div>
-                <p className="text-[10px] uppercase font-bold text-slate-500 tracking-widest">Email Me</p>
+                <p className="text-[10px] uppercase font-black text-gray-400 tracking-[0.1em] mb-1">Email Me</p>
                 <a
                   href="mailto:ajaomutalib87@gmail.com"
-                  className="font-bold hover:text-accent-blue transition-colors"
+                  className="text-lg font-black text-gray-900 hover:text-accent transition-colors"
                 >
                   ajaomutalib87@gmail.com
                 </a>
               </div>
             </div>
-            <div className="flex items-center gap-4 group">
-              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center text-accent-blue group-hover:border-accent-blue transition-all">
-                <MapPin size={20} />
+            <div className="flex items-center gap-5 group">
+              <div className="w-14 h-14 bg-white border border-gray-100 shadow-sm rounded-2xl flex items-center justify-center text-accent group-hover:border-accent transition-all duration-300">
+                <MapPin size={22} />
               </div>
               <div>
-                <p className="text-[10px] uppercase font-bold text-slate-500 tracking-widest">Location</p>
-                <p className="font-bold">Global / Remote</p>
+                <p className="text-[10px] uppercase font-black text-gray-400 tracking-[0.1em] mb-1">Location</p>
+                <p className="text-lg font-black text-gray-900">Global / Remote</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right form */}
-        <div className="md:w-1/2">
+        {/* Right side — Form */}
+        <div className="md:w-7/12">
           <form
             onSubmit={handleSubmit}
-            className="glass p-8 md:p-10 rounded-[2.5rem] space-y-6 border-white/10"
+            className="bg-white p-10 md:p-12 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-black/[0.02] space-y-8"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-500 ml-1">Name</label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div className="space-y-3">
+                <label className="text-xs font-black uppercase tracking-wider text-gray-400 ml-1">Name</label>
                 <input
                   type="text"
                   name="name"
@@ -114,11 +110,11 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   placeholder="John Doe"
-                  className="w-full bg-slate-900/50 border border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-accent-blue transition-colors text-sm"
+                  className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-6 py-5 focus:outline-none focus:border-accent focus:bg-white transition-all text-sm font-medium"
                 />
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-slate-500 ml-1">Email</label>
+              <div className="space-y-3">
+                <label className="text-xs font-black uppercase tracking-wider text-gray-400 ml-1">Email</label>
                 <input
                   type="email"
                   name="email"
@@ -126,12 +122,12 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   placeholder="john@example.com"
-                  className="w-full bg-slate-900/50 border border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-accent-blue transition-colors text-sm"
+                  className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-6 py-5 focus:outline-none focus:border-accent focus:bg-white transition-all text-sm font-medium"
                 />
               </div>
             </div>
-            <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-500 ml-1">Message</label>
+            <div className="space-y-3">
+              <label className="text-xs font-black uppercase tracking-wider text-gray-400 ml-1">Message</label>
               <textarea
                 name="message"
                 value={form.message}
@@ -139,25 +135,25 @@ export default function Contact() {
                 rows={5}
                 required
                 placeholder="Tell me about your project..."
-                className="w-full bg-slate-900/50 border border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-accent-blue transition-colors text-sm resize-none"
+                className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-6 py-5 focus:outline-none focus:border-accent focus:bg-white transition-all text-sm font-medium resize-none"
               ></textarea>
             </div>
 
             {error && (
-              <p className="text-red-400 text-sm font-medium">{error}</p>
+              <p className="text-red-500 text-sm font-bold ml-1">{error}</p>
             )}
 
             <button
               type="submit"
               disabled={isSubmitting || isSent}
-              className="w-full py-5 bg-white text-black font-black rounded-2xl hover:bg-slate-200 transition-all flex items-center justify-center gap-2 group disabled:opacity-70"
+              className="w-full py-6 bg-black text-white font-black rounded-2xl hover:bg-gray-800 transition-all flex items-center justify-center gap-3 group disabled:opacity-50 shadow-lg shadow-black/5"
             >
               {isSubmitting ? (
                 <Loader2 size={24} className="animate-spin" />
               ) : isSent ? (
                 <>
-                  <CheckCircle size={22} className="text-emerald-500" />
-                  Message Sent!
+                  <CheckCircle size={24} className="text-emerald-400" />
+                  Sent Successfully!
                 </>
               ) : (
                 <>

@@ -30,16 +30,16 @@ export default function Navbar() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
-        scrolled ? "glass border-b" : "bg-transparent"
+        scrolled ? "bg-white/80 backdrop-blur-md border-b border-gray-100" : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2 group">
-          <div className="w-10 h-10 glass rounded-lg flex items-center justify-center group-hover:border-accent-blue transition-colors">
-            <Cpu className="w-6 h-6 text-accent-blue group-hover:animate-pulse" />
+          <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+            <Cpu className="w-6 h-6 text-white" />
           </div>
-          <span className="font-display font-bold text-xl tracking-tight">
-            MUTALIB<span className="text-accent-blue">.</span>
+          <span className="font-display font-bold text-xl tracking-tight text-black">
+            MUTALIB<span className="text-accent">.</span>
           </span>
         </Link>
 
@@ -49,15 +49,15 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-slate-400 hover:text-white transition-colors relative group"
+              className="text-sm font-semibold text-gray-500 hover:text-black transition-colors relative group"
             >
               {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-blue transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
           <Link
             href="#contact"
-            className="px-5 py-2 glass rounded-full text-sm font-semibold hover:border-accent-blue hover:text-accent-blue transition-all"
+            className="px-6 py-2.5 bg-black text-white rounded-full text-sm font-bold hover:bg-gray-800 transition-all shadow-sm"
           >
             Hire Me
           </Link>
@@ -65,7 +65,7 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden p-2 text-slate-400 hover:text-white transition-colors"
+          className="md:hidden p-2 text-gray-600 hover:text-black transition-colors"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -76,17 +76,17 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-glass-border overflow-hidden mt-4 rounded-2xl"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 overflow-hidden"
           >
             <div className="flex flex-col p-6 space-y-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-lg font-medium text-slate-300 hover:text-accent-blue transition-colors"
+                  className="text-lg font-bold text-gray-800 hover:text-black transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
@@ -94,7 +94,7 @@ export default function Navbar() {
               ))}
               <Link
                 href="#contact"
-                className="w-full py-3 glass rounded-xl text-center text-accent-blue font-bold"
+                className="w-full py-4 bg-black text-white rounded-xl text-center font-bold"
                 onClick={() => setIsOpen(false)}
               >
                 Let&apos;s Talk

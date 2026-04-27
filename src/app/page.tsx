@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background relative selection:bg-accent-blue/30 overflow-x-hidden">
+    <main className="min-h-screen bg-background relative selection:bg-accent/20 overflow-x-hidden">
       <Navbar />
       <Hero />
       <BentoSection />

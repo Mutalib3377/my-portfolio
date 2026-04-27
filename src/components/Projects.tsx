@@ -1,54 +1,57 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 const projects = [
   {
     title: "Qasberry Tech",
     description:
-      "An all-in-one AI Academy platform where learners can purchase AI courses, join a community, and access premium learning resources — built with Next.js and modern full-stack technologies.",
+      "An all-in-one AI Academy platform where learners can purchase AI courses, join a community, and access premium learning resources.",
     tech: ["Next.js", "TypeScript", "Clerk", "Prisma", "PostgreSQL"],
     github: "https://github.com/Mutalib3377",
     demo: "https://qasberry-tech-fnbu.vercel.app/",
-    gradient: "from-blue-600/40 via-violet-600/20 to-transparent",
-    accent: "rgba(59,130,246,0.15)",
+    bg: "bg-blue-50",
+    text: "text-blue-600",
+    border: "border-blue-100",
     icon: "🎓",
   },
   {
     title: "Qasberry Consultancy",
     description:
-      "A professional consultancy web presence for Qasberry, featuring a polished marketing site that showcases services, builds trust, and drives client conversions.",
+      "A professional consultancy web presence for Qasberry, featuring a polished marketing site that showcases services and drives conversions.",
     tech: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
     github: "https://github.com/Mutalib3377",
     demo: "https://www.qasberry.com/",
-    gradient: "from-purple-600/40 via-pink-600/20 to-transparent",
-    accent: "rgba(168,85,247,0.15)",
+    bg: "bg-purple-50",
+    text: "text-purple-600",
+    border: "border-purple-100",
     icon: "💼",
   },
   {
     title: "D-Arsh Capital",
     description:
-      "A financial consultancy website for D-Arsh Capital, crafted on WordPress with a professional design that instills credibility and guides prospective clients through the firm's offerings.",
+      "A financial consultancy website for D-Arsh Capital, crafted with a professional design that instills credibility and trust.",
     tech: ["WordPress", "PHP", "CSS", "Elementor"],
     github: "https://github.com/Mutalib3377",
     demo: "https://d-arshcapital.com/",
-    gradient: "from-emerald-600/40 via-teal-600/20 to-transparent",
-    accent: "rgba(16,185,129,0.15)",
+    bg: "bg-emerald-50",
+    text: "text-emerald-600",
+    border: "border-emerald-100",
     icon: "📈",
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 bg-slate-950/50">
+    <section id="projects" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold tracking-widest text-accent-blue uppercase mb-2">Portfolio</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-black mb-6">Featured Work.</h3>
-          <p className="max-w-xl mx-auto text-slate-400">
-            Real-world products I&apos;ve built — from AI-powered platforms to financial consultancy sites.
+          <span className="section-label">Portfolio</span>
+          <h3 className="text-4xl md:text-5xl font-display font-black tracking-tight mb-6">Selected Projects.</h3>
+          <p className="max-w-xl mx-auto text-gray-500 font-medium">
+            A collection of high-impact digital products I&apos;ve built, ranging from education platforms to financial services.
           </p>
         </div>
 
@@ -56,27 +59,21 @@ export default function Projects() {
           {projects.map((project, idx) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.12 }}
-              whileHover={{ y: -6 }}
-              className="glass rounded-3xl overflow-hidden group border border-white/5 hover:border-white/10 transition-all duration-500"
-              style={{ boxShadow: `0 0 0 0 ${project.accent}` }}
+              transition={{ delay: idx * 0.1 }}
+              className="card group overflow-hidden"
             >
-              {/* Gradient hero panel */}
-              <div className={`relative h-48 w-full bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
-                <div className="absolute inset-0 bg-slate-900/40" />
-                <span className="relative text-6xl select-none">{project.icon}</span>
-
-                {/* Action buttons */}
-                <div className="absolute top-4 right-4 flex gap-2 z-10 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+              <div className={`h-52 ${project.bg} flex items-center justify-center border-b ${project.border} relative overflow-hidden`}>
+                <span className="text-6xl group-hover:scale-110 transition-transform duration-500">{project.icon}</span>
+                
+                <div className="absolute top-4 right-4 flex gap-2 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 glass rounded-full hover:text-white transition-colors bg-slate-900/70 backdrop-blur"
-                    aria-label="View GitHub"
+                    className="p-2.5 bg-white border border-gray-100 rounded-full hover:bg-black hover:text-white hover:border-black transition-all shadow-sm"
                   >
                     <Github size={16} />
                   </a>
@@ -84,42 +81,28 @@ export default function Projects() {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 glass rounded-full hover:text-white transition-colors bg-slate-900/70 backdrop-blur"
-                    aria-label="View Live Demo"
+                    className="p-2.5 bg-white border border-gray-100 rounded-full hover:bg-black hover:text-white hover:border-black transition-all shadow-sm"
                   >
                     <ExternalLink size={16} />
                   </a>
                 </div>
-
-                {/* Live badge */}
-                <div className="absolute bottom-4 left-4">
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider bg-slate-900/70 backdrop-blur px-3 py-1.5 rounded-full border border-white/10 hover:border-white/30 transition-colors"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Live
-                  </a>
-                </div>
               </div>
 
-              <div className="p-7">
+              <div className="p-8">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="text-[10px] uppercase font-bold tracking-wider text-accent-blue/80 bg-accent-blue/5 px-2 py-1 rounded-md border border-accent-blue/10"
-                    >
+                    <span key={t} className="tag text-[9px] px-2 py-0.5">
                       {t}
                     </span>
                   ))}
                 </div>
-                <h4 className="text-xl font-bold mb-3 group-hover:text-accent-blue transition-colors">
+                <h4 className="text-xl font-black mb-3 tracking-tight group-hover:text-accent transition-colors flex items-center justify-between">
                   {project.title}
+                  <ArrowUpRight size={18} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                 </h4>
-                <p className="text-sm text-slate-400 leading-relaxed">{project.description}</p>
+                <p className="text-sm text-gray-500 leading-relaxed font-medium">
+                  {project.description}
+                </p>
               </div>
             </motion.div>
           ))}
@@ -130,9 +113,9 @@ export default function Projects() {
             href="https://github.com/Mutalib3377"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-black transition-colors"
           >
-            View More on GitHub <ExternalLink size={16} />
+            Explore all on GitHub <ExternalLink size={16} />
           </Link>
         </div>
       </div>
